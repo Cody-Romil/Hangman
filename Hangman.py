@@ -30,7 +30,7 @@ class Hangman():
         while (self.chances > 0):
             let = input("Guess a letter: ").lower()
             os.system("cls")
-            
+
             if let in self.wrd.lower():
                 if let in self.guessed:
                     print("You Already Guesssed it!, Try another letter.")
@@ -44,6 +44,7 @@ class Hangman():
                 self.chances-=1
                 print("Your Guess Was Incorrect!")
                 print(f"You Have Only {self.chances} Chances left!")
+                self._print()
 
 
 if __name__=="__main__":
