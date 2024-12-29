@@ -3,6 +3,7 @@ import os
 
 class Hangman():
     def __init__(self):
+        os.system("cls")
         self.chances = 0
         self.guessed = []
         self._get_wrd()
@@ -23,7 +24,26 @@ class Hangman():
                 print(i, end="")
             else:
                 print("_", end="")
-        print("")
+        print("\n")
+        match self.chances:
+            case 7:
+                print("|=============\n|\n|\n|\n|\n|\n|=============\n")
+            case 6:
+                print("|=============\n|      |\n|\n|\n|\n|\n|=============\n")
+            case 5:
+                print("|=============\n|      |\n|      O\n|\n|\n|\n|=============\n")
+            case 4:
+                print("|=============\n|      |\n|      O\n|      |\n|\n|\n|=============\n")
+            case 3:
+                print("|=============\n|      |\n|      O\n|     /|\n|\n|\n|=============\n")
+            case 2:
+                print("|=============\n|      |\n|      O\n|     /|\\\n|\n|\n|=============\n")
+            case 1:
+                print("|=============\n|      |\n|      O\n|     /|\\\n|     /\n|\n|=============\n")
+            case 0:
+                print("|=============\n|      |\n|      O\n|     /|\\\n|     / \\\n|\n|=============\n")
+                print("Sorry, You Lost The Game!")
+                exit()
 
     def _mainloop(self):
         print(f"Your Have {self.chances} chances to guess the word.")
