@@ -19,12 +19,15 @@ class Hangman():
         print(self.wrd)
     
     def _print(self):
+        self.display = ""
         for i in self.wrd:
             if i.lower() in self.guessed:
-                print(i, end="")
+                self.display+=i
             else:
-                print("_", end="")
-        print("\n")
+                self.display+="_"
+
+        print(self.display, "\n")
+        
         match self.chances:
             case 7:
                 print("|=============\n|\n|\n|\n|\n|\n|=============\n")
@@ -65,6 +68,11 @@ class Hangman():
                 print("Your Guess Was Incorrect!")
                 print(f"You Have Only {self.chances} Chances left!")
                 self._print()
+
+            if self.display == self.wrd:
+                print("You Won!")
+                exit()
+
 
 
 if __name__=="__main__":
